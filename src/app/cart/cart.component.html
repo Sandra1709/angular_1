@@ -1,0 +1,24 @@
+<div class="car-list">
+    <h2>Available Diecast Cars</h2>
+    <div *ngFor="let car of availableCars" class="car-item">
+      <img [src]="car.imageUrl" alt="{{ car.name }}" class="car-image" />
+      <div class="car-details">
+        <h3>{{ car.name }} - Scale: {{ car.scale }}</h3>
+        <p>Price: ${{ car.price }}</p>
+        <button (click)="addToCart(car)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cart">
+    <h2>Your Cart</h2>
+    <div *ngIf="cart.length === 0">Your cart is empty</div>
+    <div *ngFor="let car of cart" class="cart-item">
+      <span>{{ car.name }} - ${{ car.price }}</span>
+      <button (click)="removeFromCart(car)">Remove</button>
+    </div>
+    <div *ngIf="cart.length > 0" class="cart-total">
+      <strong>Total: ${{ getTotalPrice() }}</strong>
+    </div>
+  </div>
+  

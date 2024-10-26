@@ -1,0 +1,51 @@
+<div>
+    <h2> this is from data component</h2>
+    <h3>productId:{{productId}}</h3>
+    <h3>description:{{desc}}</h3>
+    <h3>brand:{{brand}}</h3>
+    <h3>price:{{price}}</h3>
+    <h3>Is available?:{{Isavailable}}</h3>
+    <h3>
+        <input type="number" name="orderedQty" [(ngModel)]="orderedQty">
+         <input type="button" name="orderbtn" value="order" (click)="placeOrder()" [disabled]="orderedQty<=0">
+        </h3>
+        <div *ngIf="isMember; else nonmember">
+            <h2>members area</h2>
+            <h3>the follwing are your valued offers</h3>
+            <h4>Discount vouchers upto 5000 on booking flights</h4>
+            <h4>20% discount on purchase of gold ornaments worth 2  and above</h4>
+            
+        </div>
+        <div>
+            <ng-template #nonmember>
+            <h2>non-members area</h2>
+            <h3>hurry!! register to avail offers and bonuses</h3>
+            <h3>On registration you will be eligible for platinum credit card</h3>
+        </ng-template>
+        </div>
+        <h3>
+            free shipping <span [style.background-color]="freeshipping">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </h3>
+
+        <!-- ngfor --used for looping -->
+        <div *ngFor="let product of products; index as i ">
+            {{i}}
+                {{product.productId}}
+                {{product.description}}
+                {{product.brand}}
+                {{product.price}}
+                {{product.freeshipping}}
+                
+        </div>
+        <hr><hr>
+
+        <div *ngFor="let product of products2 ">
+
+                {{product.productId}}
+                {{product.desc}}
+                {{product.brand}}
+                {{product.price}}
+                {{product.availqty}}
+                
+        </div>
+</div>

@@ -1,0 +1,6 @@
+#Component{
+    display: flex;
+}
+#Component>div{
+    width: 50%;
+}
